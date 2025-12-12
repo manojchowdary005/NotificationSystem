@@ -1,4 +1,5 @@
 import json
+import os
 from redis.asyncio import Redis
 
 REDIS_URL = os.getenv('REDIS_URL', "redis://localhost:6379/0")
