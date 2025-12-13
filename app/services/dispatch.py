@@ -1,7 +1,7 @@
 from app.schemas import NotificationRequest
-from app.email_service import send_email
-from app.push_service import send_push
-from app.sms_service import send_sms
+from app.services.email_service import send_email
+from app.services.push_service import send_push
+from app.services.sms_service import send_sms
 
 class DispatchService:
     async def dispatch(self, notification: NotificationRequest):
