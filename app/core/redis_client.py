@@ -11,8 +11,8 @@ redis = Redis.from_url(REDIS_URL, decode_responses = True)
 
 QUEUE_NAME = "notification_queue"
 
-async def enque_notification(payload: dict):
+async def enqueue_notification(payload: dict):
     await redis.lpush(QUEUE_NAME, json.dumps(payload))
 
-async def deque_notification(timeout: int = 0):
+async def dequeue_notification(timeout: int = 0):
     await redis.brpop(QUEUE_NAME, timeout=timeout)
